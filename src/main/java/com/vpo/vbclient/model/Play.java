@@ -1,5 +1,7 @@
 package com.vpo.vbclient.model;
 
+import java.util.Date;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -9,15 +11,31 @@ public class Play {
 	public Play() {
 			super();
 		}
-//  "current_song": {
-//  "song_id": 68250,
-//  "play_id": "G-Test-6c4008b3e6c4-1435717763903-2",
-//  "title": "Beautiful, Dirty, Rich",
-//  "artist": "Lady Gaga",
-//  "duration": 170000,
-//  "position": 30000,
-//  "paused": false
-//},
+//  from: play/history
+//    "song_id": 63530,
+//    "play_id": "G-Test-fefdadffdcfa-1439598265971-1",
+//    "title": "Just Dropped In (To See What Condition My Condition Was In)",
+//    "artist": "Rogers, Kenny & The First Edition",
+//    "location": "Test",
+//    "business_date": "2015-08-14",
+//    "enqueue_time": "2015-08-15T00:24:25.971Z",
+//    "start_time": "2015-08-15T00:26:39.035Z",
+//    "end_time": "2015-08-15T00:30:14.117Z",
+//    "duration": 212331,
+//    "position": 212331,
+//    "favorite": false
+	
+	
+//    "song_id": 67519,
+//    "play_id": "G-Test-f23c9167b37b-1458100596049-4",
+//    "title": "Start It Up",
+//    "artist": "Banks, Lloyd ft. Kanye West, Swizz Beatz, Ryan Leslie & Fabolous",
+//    "duration": 302680,
+//    "position": 30000,
+//    "paused": false,
+//    "message": "a3c71usdda9jjw9",
+//    "message_color": "#00BCB5"
+
 	@JsonProperty("song_id")
 	private Integer songId;
 	@JsonProperty("play_id")
@@ -29,6 +47,19 @@ public class Play {
 	private Integer position;
 	private Long estimatedPlayTime;
 	private boolean paused;
+	private String message;
+	@JsonProperty("message_color")
+	private String messageColor;
+	private String locaton;
+	private Boolean favorite;
+	@JsonProperty("business_date")
+	private Date businessDate;
+	@JsonProperty("enqueue_date")
+	private Date enqueueDate;
+	@JsonProperty("start_date")
+	private Date startDate;
+	@JsonProperty("end_date")
+	private Date endDate;
 	
 	public Integer getId() {
 		return songId;
@@ -78,11 +109,59 @@ public class Play {
 	public void setEstimatedPlayTime(Long estimatedPlayTime) {
 		this.estimatedPlayTime = estimatedPlayTime;
 	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	public String getMessageColor() {
+		return messageColor;
+	}
+	public void setMessageColor(String messageColor) {
+		this.messageColor = messageColor;
+	}
 	public boolean isPaused() {
 		return paused;
 	}
 	public void setPaused(boolean paused) {
 		this.paused = paused;
+	}
+	public Integer getSongId() {
+		return songId;
+	}
+	public void setSongId(Integer songId) {
+		this.songId = songId;
+	}
+	public String getLocaton() {
+		return locaton;
+	}
+	public void setLocaton(String locaton) {
+		this.locaton = locaton;
+	}
+	public Boolean getFavorite() {
+		return favorite;
+	}
+	public void setFavorite(Boolean favorite) {
+		this.favorite = favorite;
+	}
+	public Date getBusinessDate() {
+		return businessDate;
+	}
+	public void setBusinessDate(Date businessDate) {
+		this.businessDate = businessDate;
+	}
+	public Date getEnqueueDate() {
+		return enqueueDate;
+	}
+	public void setEnqueueDate(Date enqueueDate) {
+		this.enqueueDate = enqueueDate;
+	}
+	public Date getEndDate() {
+		return endDate;
+	}
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
 	}
 	@Override
 	public String toString() {
